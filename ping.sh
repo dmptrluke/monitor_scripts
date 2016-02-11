@@ -1,7 +1,7 @@
 #!/usr/local/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/root/bin
 
-host="rtr1.lax.opendns.com"
+host=$1
 number="10"
 wait="1"
 
