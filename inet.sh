@@ -7,8 +7,8 @@ while :
 do
     sleep 30
 	# get in/out octets
-	inetin=`snmpget -Ov -v 2c -c public 192.168.1.1 IF-MIB::ifInOctets.4`
-	inetout=`snmpget -Ov -v 2c -c public 192.168.1.1 IF-MIB::ifOutOctets.4`
+	inetin=`snmpget -Ov -v 2c -c public 192.168.1.1 IF-MIB::ifInOctets.7`
+	inetout=`snmpget -Ov -v 2c -c public 192.168.1.1 IF-MIB::ifOutOctets.7`
 
 	# strip crap
 	inetin=$(echo $inetin | cut -c 12-)
