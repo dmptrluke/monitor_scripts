@@ -2,11 +2,12 @@
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/games:/usr/local/sbin:/usr/local/bin:/root/bin
 
 host=$1
-number="10"
-wait="1"
+
+#store the start timestamp
+timestamp=$(date +%s)
 
 #Lets ping the host!
-results=$(ping -c $number -i $wait -q $host)
+results=$(ping -c 10 -i 1 -W 1 -q $host)
 
 #We need to get ONLY lines 4 and 5 from the results
 #The rest isn't needed for ourpurposes
@@ -44,7 +45,4 @@ max=${numbersarray[2]}
 mdev=${numbersarray[3]}
 
 #Write the data to the database
-curl -i -u monitor:43nu889Q3ypeuRJh6qT4 -XPOST 'http://localhost:8086/write?db=monitor&precision=s' --data-binary "ping,host=$host,measurement=loss value=$lossnumber
-ping,host=$host,measurement=min value=$min
-ping,host=$host,measurement=avg value=$avg
-ping,host=$host,measurement=max value=$max"
+curl -i -u monitor:43nu889Q3ypeuRJh6qT4 -XPOST 'http://localhost:8086/write?db=monitor&precision=m' --data-binary "ping,host=$host loss=$lossnumber,min=$min,avg=$avg,max=$max $timestamp"
