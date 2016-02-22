@@ -17,8 +17,8 @@ diffin=$((in - oldin))
 diffout=$((out - oldout))
 	
 #Calculate the bytes-per-second
-bpsin=$((diffin / sleeptime))
-bpsout=$((diffout / sleeptime))
+bpsin=$((diffin / 60))
+bpsout=$((diffout / 60))
 
 if [[ $inbps -lt 0 || $outbps -lt 0 || $kidsinbps -lt 0 || $kidsoutbps -lt 0 ]] 
 then
