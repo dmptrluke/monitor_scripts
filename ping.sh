@@ -45,4 +45,4 @@ max=${numbersarray[2]}
 mdev=${numbersarray[3]}
 
 #Write the data to the database
-curl -i -u monitor:43nu889Q3ypeuRJh6qT4 -XPOST 'http://localhost:8086/write?db=monitor&precision=m' --data-binary "ping,host=$host loss=$lossnumber,min=$min,avg=$avg,max=$max $timestamp"
+curl -i -u monitor:43nu889Q3ypeuRJh6qT4 -XPOST 'http://localhost:8086/write?db=monitor&precision=s' --data-binary "ping,host=$host loss=$lossnumber,min=$min,avg=$avg,max=$max $timestamp"
